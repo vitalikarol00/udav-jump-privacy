@@ -13,6 +13,7 @@
       max-width: 800px;
       margin: 40px auto;
       padding: 0 20px;
+      transition: all 0.3s ease;
     }
     h1, h2 {
       color: #4de06b;
@@ -52,29 +53,81 @@
       top: 25%;
       left: 28%;
     }
+    button {
+      display: block;
+      margin: 10px auto 30px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4de06b;
+      color: #0f1115;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background-color: #5df07b;
+    }
   </style>
 </head>
 <body>
   <div class="logo"></div>
-  <h1>Политика конфиденциальности — UDAV Jump</h1>
+  <h1 id="title">Политика конфиденциальности — UDAV Jump</h1>
+  <button id="toggleLang">English version</button>
 
-  <p>Мы уважаем вашу конфиденциальность. Приложение <b>UDAV Jump</b> не запрашивает персональные данные пользователей.</p>
+  <div id="ru">
+    <p>Мы уважаем вашу конфиденциальность. Приложение <b>UDAV Jump</b> не запрашивает персональные данные пользователей.</p>
 
-  <h2>1. Сбор данных</h2>
-  <p>Приложение не собирает и не хранит персональные данные. Рекламные сети (Google AdMob) могут использовать анонимные идентификаторы устройства для показа рекламы согласно своей <a href="https://policies.google.com/technologies/ads" target="_blank">политике конфиденциальности</a>.</p>
+    <h2>1. Сбор данных</h2>
+    <p>Приложение не собирает и не хранит персональные данные. Рекламные сети (Google AdMob) могут использовать анонимные идентификаторы устройства для показа рекламы согласно своей <a href="https://policies.google.com/technologies/ads" target="_blank">политике конфиденциальности</a>.</p>
 
-  <h2>2. Реклама</h2>
-  <p>Мы используем сервис Google AdMob для отображения рекламы. Эти объявления помогают поддерживать развитие игры.</p>
+    <h2>2. Реклама</h2>
+    <p>Мы используем сервис Google AdMob для отображения рекламы. Эти объявления помогают поддерживать развитие игры.</p>
 
-  <h2>3. Дети</h2>
-  <p>Приложение не предназначено для пользователей младше 13 лет.</p>
+    <h2>3. Дети</h2>
+    <p>Приложение не предназначено для пользователей младше 13 лет.</p>
 
-  <h2>4. Контакты</h2>
-  <p>По вопросам, связанным с конфиденциальностью, вы можете связаться с разработчиком по электронной почте: <b>your-email@example.com</b></p>
+    <h2>4. Контакты</h2>
+    <p>По вопросам конфиденциальности свяжитесь с разработчиком: <b><a href="mailto:vekorol@gmail.com">vekorol@gmail.com</a></b></p>
 
-  <div class="footer">
-    Версия: 1.0 | Дата: 4 ноября 2025<br>
-    © 2025 Vitaliy Korol
+    <div class="footer">
+      Версия: 1.0 | Дата: 4 ноября 2025<br>
+      © 2025 Vitaliy Korol
+    </div>
   </div>
+
+  <div id="en" style="display:none;">
+    <p>We respect your privacy. The <b>UDAV Jump</b> app does not request or store any personal data from users.</p>
+
+    <h2>1. Data collection</h2>
+    <p>The app does not collect or store personal information. Advertising networks (Google AdMob) may use anonymous device identifiers to display ads according to their <a href="https://policies.google.com/technologies/ads" target="_blank">Privacy Policy</a>.</p>
+
+    <h2>2. Advertising</h2>
+    <p>We use Google AdMob to display ads. These ads help support the development of the game.</p>
+
+    <h2>3. Children</h2>
+    <p>The app is not intended for users under the age of 13.</p>
+
+    <h2>4. Contacts</h2>
+    <p>For privacy questions, contact the developer: <b><a href="mailto:vekorol@gmail.com">vekorol@gmail.com</a></b></p>
+
+    <div class="footer">
+      Version: 1.0 | Date: November 4, 2025<br>
+      © 2025 Vitaliy Korol
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('toggleLang');
+    const ru = document.getElementById('ru');
+    const en = document.getElementById('en');
+    btn.addEventListener('click', () => {
+      const ruVisible = ru.style.display !== 'none';
+      ru.style.display = ruVisible ? 'none' : 'block';
+      en.style.display = ruVisible ? 'block' : 'none';
+      btn.textContent = ruVisible ? 'Русская версия' : 'English version';
+      document.title = ruVisible ? 'Privacy Policy — UDAV Jump' : 'Политика конфиденциальности — UDAV Jump';
+    });
+  </script>
 </body>
 </html>
